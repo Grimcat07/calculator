@@ -35,7 +35,7 @@ body{
 }
 .display
 {
-    height: 115x;
+    height: 115px;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -53,8 +53,7 @@ body{
 {
     height: 100px;
     width: 100px;
-    padding: 20px;
-    border: 2px,solid,red;
+    border: 2px solid red;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -76,4 +75,11 @@ body{
     justify-content: flex-end;
     align-items: flex-end;
     height: 90px;
+}
+button{
+    background-color: black;
+    color: gray;
+    height: 100px;
+    width: 100px;
+    border: 1.5px solid red;
 }
