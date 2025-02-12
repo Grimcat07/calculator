@@ -43,7 +43,7 @@ button.forEach(buton=>{
             input='';
             operand1='';
             operand2='';
-            operator=''
+            operator=''; 
             display.textContent='';
             subdisp.textContent='';
         }
@@ -51,23 +51,33 @@ button.forEach(buton=>{
             operand2=input;
             if(operand1!='' && operand2!='' && operator!='')
             {
-               result=operate(parseFloat(operand1),operator,parseFloat(operand2));
-               operand1=result;
+               operand2=input; 
+			   result=operate(parseFloat(operand1),operator,parseFloat(operand2));
+			   subdisp.textContent=`${operand1} ${operator} ${operand2}`;
+			   operand1=result; 
+			   input=''; 
                operand2='';
                operator='';
                display.textContent=result;
-               subdisp.textContent=`${operand1} ${operator} ${operand2}`;
+               
 
-        }}
+        }   }
         else if(['+','-','*','/'].includes(buton.innerText)){
-            
-            if(operand1==''){
+            if(operand1 !=''&& input !=''){
+				operand2=input; 
+				result=operate(parseFloat(operand1),operator,parseFloat(operand2));
+				subdisp.textContent=`${operand1} ${operator} ${operand2}`;
+				operand1=result; 
+				input=''; 
+				operator=''; 
+				operand2=''; 
+				display.textContent=result; 
+				
+			}
+            if(operand1===''){
                 operand1=input;
             }
-            else
-            {
-                operand2=input;
-            }
+            
             input='';
             operator=buton.innerText;
             display.textContent=operand1+''+operator;
@@ -77,7 +87,6 @@ button.forEach(buton=>{
         else{
             input=input+buton.innerText;
             display.textContent=input;
-            //subdisp.textContent = `${operand1} ${operator} ${input}`;
         }
     })
 });
