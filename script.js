@@ -12,23 +12,74 @@ function div(a,b) {
     return b==0 ? "ERROR" : a/b;
 }
 
-let operand1=0; let operand2=0;let operator='';
+let operand1=''; let operand2='';let operator='';
 function operate(operand1,operator,operand2){
     let result;
     switch(operator)
     {
         case '+':
-            result=add(operand1,operand2);
+            return add(operand1,operand2);
             break;
         case '-':
-            result=sub(operand1,operand2);
+            return sub(operand1,operand2);
             break;
         case '*':
-            result=mul(operand1,operand2);
+            return mul(operand1,operand2);
             break;
         case '/':
-            result=div(operand1,operand2);
+            return div(operand1,operand2);
             break;
     }
-    console.log(result);
 }
+let display=document.querySelector(".result");
+let subdisp=document.querySelector(".sub-display");
+const buttons=document.querySelectorAll("button")
+const button=Array.from(buttons);
+let input ='';let result;
+button.forEach(buton=>{
+    buton.addEventListener("click",()=>{
+        
+        if(buton.innerText==="AC"){
+            input='';
+            operand1='';
+            operand2='';
+            operator=''
+            display.textContent='';
+            subdisp.textContent='';
+        }
+        else if(buton.innerText==='='){
+            operand2=input;
+            if(operand1!='' && operand2!='' && operator!='')
+            {
+               result=operate(parseFloat(operand1),operator,parseFloat(operand2));
+               operand1=result;
+               operand2='';
+               operator='';
+               display.textContent=result;
+               subdisp.textContent=`${operand1} ${operator} ${operand2}`;
+
+        }}
+        else if(['+','-','*','/'].includes(buton.innerText)){
+            let count=0;
+            count++;   
+            }
+            if(operand1==''){
+                operand1=input;
+            }
+            else
+            {
+                operand2=input;
+            }
+            input='';
+            operator=buton.innerText;
+            display.textContent=operand1+''+operator;
+            
+
+        }
+        else{
+            input=input+buton.innerText;
+            display.textContent=input;
+            //subdisp.textContent = `${operand1} ${operator} ${input}`;
+        }
+    })
+});

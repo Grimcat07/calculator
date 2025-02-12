@@ -9,9 +9,8 @@ body{
 .container
 {
     display: flex;
-    height: 515px;
+    height: 615px;
     width: 400px;
-    background-color: brown;
 }
 .calculator
 {
@@ -29,7 +28,7 @@ body{
 .keypad{
     display: flex;
     background-color: black;
-    height: 400px;
+    height: 500px;
     width: 400px;
     flex-direction: column;
 }
@@ -42,11 +41,12 @@ body{
     background-color: gray;
     color: black;
 }
-.row1,.row2,.row3,.row4
+.row1,.row2,.row3,.row4,.row5
 {
     height: 100px;
     width: 400px;
     display: flex;
+    flex-grow: 1;
 
 }
 .num
@@ -82,4 +82,9 @@ button{
     height: 100px;
     width: 100px;
     border: 1.5px solid red;
+}
+.row5 .num, .row5 .num button
+{
+    width: 400px;
+
 }
