@@ -60,9 +60,7 @@ button.forEach(buton=>{
 
         }}
         else if(['+','-','*','/'].includes(buton.innerText)){
-            let count=0;
-            count++;   
-            }
+            
             if(operand1==''){
                 operand1=input;
             }
