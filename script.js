@@ -35,7 +35,7 @@ let display=document.querySelector(".result");
 let subdisp=document.querySelector(".sub-display");
 const buttons=document.querySelectorAll("button")
 const button=Array.from(buttons);
-let input ='';let result;
+let input ='';let result;let decimal=false; 
 button.forEach(buton=>{
     buton.addEventListener("click",()=>{
         
@@ -46,6 +46,7 @@ button.forEach(buton=>{
             operator=''; 
             display.textContent='';
             subdisp.textContent='';
+			decimal=false; 
         }
         else if(buton.innerText==='='){
             operand2=input;
@@ -58,6 +59,7 @@ button.forEach(buton=>{
 			   input=''; 
                operand2='';
                operator='';
+			   decimal=false; 
                display.textContent=result;
                
 
@@ -71,6 +73,7 @@ button.forEach(buton=>{
 				input=''; 
 				operator=''; 
 				operand2=''; 
+				decimal=false; 
 				display.textContent=result; 
 				
 			}
@@ -92,16 +95,10 @@ button.forEach(buton=>{
 			} 
 			else
 			{
-				; 
+				return; 
 			}
 		}
         else{
-			if(buton.innerText=='.'){
-				decimal++; 
-			}
-			if(decimal>0){
-				
-			}
             input=input+buton.innerText;
             display.textContent=input;
         }
