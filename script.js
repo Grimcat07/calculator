@@ -84,7 +84,24 @@ button.forEach(buton=>{
             
 
         }
+		else if(buton.innerText=='. '){
+			if(decimal==false){
+			input=input+button.innerText; 
+			display.textContent=input; 
+			decimal=true;
+			} 
+			else
+			{
+				; 
+			}
+		}
         else{
+			if(buton.innerText=='.'){
+				decimal++; 
+			}
+			if(decimal>0){
+				
+			}
             input=input+buton.innerText;
             display.textContent=input;
         }
