@@ -36,10 +36,10 @@ let subdisp=document.querySelector(".sub-display");
 const buttons=document.querySelectorAll("button")
 const button=Array.from(buttons);
 let input ='';let result;let decimal=false; let equal=0;
-button.forEach(buton=>{
-    buton.addEventListener("click",()=>{
+button.forEach(buttonValue=>{
+    buttonValue.addEventListener("click",()=>{
         
-        if(buton.innerText==="AC"){
+        if(buttonValue.innerText==="AC"){
             input='';
             operand1='';
             operand2='';
@@ -48,7 +48,7 @@ button.forEach(buton=>{
             subdisp.textContent='';
 			decimal=false; 
         }
-        else if(buton.innerText==='='){
+        else if(buttonValue.innerText==='='){
             if(operand1!='' && operator!=''&& input!='')
             {
                operand2=input; 
@@ -64,7 +64,7 @@ button.forEach(buton=>{
             }    
 		}
 		
-        else if(['+','-','*','/'].includes(buton.innerText)){
+        else if(['+','-','*','/'].includes(buttonValue.innerText)){
             if(operand1 !=''&& input !=''){
 				operand2=input; 
 				result=operate(parseFloat(operand1),operator,parseFloat(operand2));
@@ -83,12 +83,12 @@ button.forEach(buton=>{
             }
             equal=0;
             input='';
-            operator=buton.innerText;
+            operator=buttonValue.innerText;
             display.textContent=operand1+''+operator;
             
 
         }
-		else if(buton.innerText=='.'){
+		else if(buttonValue.innerText=='.'){
 			if(decimal==false){
 				if(operand1==''&&input==''){
 					input='0.'; 
@@ -97,7 +97,7 @@ button.forEach(buton=>{
 				}
 			    else
 				{
-		        	input=input+buton.innerText; 
+		        	input=input+buttonValue.innerText; 
 			        display.textContent=input; 
 			        decimal=true;
 				} 
@@ -115,7 +115,7 @@ button.forEach(buton=>{
 				display.textContent=input; 
 				equal=0;
 			}
-            input=input+buton.innerText;
+            input=input+buttonValue.innerText;
             display.textContent=input;
         }
     })
